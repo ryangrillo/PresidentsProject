@@ -10,9 +10,6 @@
 <body>
 	<table style=text-align:center border=1em >
 		<tr style=padding:100em>
-		<!-- builder.append("President [fName=").append(fName).append(", mName=").append(mName).append(", lName=")
-				.append(lName).append(", party=").append(party).append(", termNumber=").append(termNumber)
-				.append(", startYear=").append(startYear).append(", endYear=").append(endYear).append("]");-->
 			<th>Term Number</th>
 			<th>Full Name</th>
 			<th>Party</th>
@@ -24,22 +21,15 @@
 			<td>${president.party}</td>
 			<td>${president.startYear}-${president.endYear}</td>
 		</tr>
-		<%-- 		<fmt:formatNumber value="${stock.price}" 
-				                  type="currency" />
-			</td>
-			<td>
-				<fmt:formatNumber value="${stock.openPrice}" 
-				                  type="currency"/>
-			</td>
-			<c:choose>
-				<c:when test="${stock.price < stock.openPrice}">
-					<td><img src="images/downarrow.png" /></td>
-				</c:when>
-				<c:otherwise>
-					<td><img src="images/uparrow.png" /></td>
-				</c:otherwise>
-			</c:choose>
-		 </tr>--%>
 	</table>
+	<img src="${president.image}" height="30%" width="30%" />
+	<form action=getNextOrPrevious.do method="GET">
+	<input type="hidden" name="termNum" value="${president.termNumber }" /> 
+		<input type="submit" value="Next President" name="next"/>
+
+	</form>
+	president = ${president.fName}
+
+	
 </body>
 </html>

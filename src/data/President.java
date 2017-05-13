@@ -1,10 +1,10 @@
 package data;
 
 public class President {
-	private String fName, mName, lName, party, termNumber, startYear, endYear;
+	private String fName, mName, lName, party, termNumber, startYear, endYear, image;
 
 	public President(String fName, String mName, String lName, String party, String termNumber, String startYear,
-			String endYear) {
+			String endYear, String image) {
 		super();
 		this.fName = fName;
 		this.mName = mName;
@@ -13,6 +13,7 @@ public class President {
 		this.termNumber = termNumber;
 		this.startYear = startYear;
 		this.endYear = endYear;
+		this.image = image;
 	}
 
 	public President() {
@@ -73,6 +74,14 @@ public class President {
 
 	public void setEndYear(String endYear) {
 		this.endYear = endYear;
+	}
+	
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	@Override

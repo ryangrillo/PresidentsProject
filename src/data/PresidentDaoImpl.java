@@ -50,10 +50,10 @@ public class PresidentDaoImpl implements PresidentDao {
 			String line = "";
 			while ( (line = br.readLine()) != null) {
 				String[] fields = line.split(",");
-				if (fields.length !=6) {continue;}
+				if (fields.length !=7) {continue;}
 				String[] termRange = fields[4].split("-");
 				President p = new President(fields[1], fields[2], fields[3], fields[5], fields[0], termRange[0],
-						termRange[1]);
+						termRange[1], fields[6]);
 				presidents.add(p);
 			}
 			br.close();
