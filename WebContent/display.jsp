@@ -5,9 +5,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1">
+<link rel="stylesheet" href="style.css" media="screen">
 <title>President Info</title>
 </head>
 <body>
+	<img src="${president.image}" height="30%" width="30%" />
+	<br>
 	<table style=text-align:center border=1em >
 		<tr style=padding:100em>
 			<th>Term Number</th>
@@ -22,13 +26,13 @@
 			<td>${president.startYear}-${president.endYear}</td>
 		</tr>
 	</table>
-	<img src="${president.image}" height="30%" width="30%" />
+	
 	<form action=getNextOrPrevious.do method="GET">
 	<input type="hidden" name="termNum" value="${president.termNumber }" /> 
 		<input type="submit" value="Next President" name="next"/>
 
 	</form>
-	president = ${president.fName}
+	
 
 	
 </body>
