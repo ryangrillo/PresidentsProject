@@ -9,7 +9,7 @@
 	<servlet-class>web.PresidentServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>MyCartServlet</servlet-name>
+  	<servlet-name>PresidentServlet</servlet-name>
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
   
