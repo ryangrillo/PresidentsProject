@@ -33,10 +33,10 @@ public class PresidentServlet extends HttpServlet {
             req.setAttribute("president", pres);
             req.getRequestDispatcher("display.jsp").forward(req, resp);
         }
-        else if(next != null && termNum != null){
+        else if(next != null && termNum != null && filteredList.isEmpty()){
 	        		President nextPres;
             
-        		if ((presidents.indexOf(pres) == 44)) {
+        		if ((presidents.indexOf(pres) == presidents.size()-1)) {
         			nextPres = presidents.get(0);
         		}
         		else {
@@ -44,6 +44,18 @@ public class PresidentServlet extends HttpServlet {
         		}
             req.setAttribute("president", nextPres);
             req.getRequestDispatcher("display.jsp").forward(req, resp);
+        }
+        else if(next != null && termNum != null && !(filteredList.isEmpty())){
+        		President nextPres;
+            
+        		if ((filteredList.indexOf(pres) == filteredList.size()-1)) {
+        			nextPres = filteredList.get(0);
+        		}
+        		else {
+        			nextPres =  filteredList.get((filteredList.indexOf(pres))+1);
+        		}
+        	req.setAttribute("president", nextPres);
+        req.getRequestDispatcher("display.jsp").forward(req, resp);
         }
         
         else if(previous != null && termNum != null) {
@@ -60,17 +72,14 @@ public class PresidentServlet extends HttpServlet {
         	
        	}
         else if(party != null) {
-        		System.out.println(party);
         		for (President p : presidents) {
-				System.out.println(p);
         			if((p.getParty().trim()).equalsIgnoreCase(party)) {
-					System.out.println(p.getParty());
 					filteredList.add(p);
 				}
 			}
         		req.setAttribute("president", filteredList.get(0));
+        		req.setAttribute("presidents", filteredList);
 			req.getRequestDispatcher("display.jsp").forward(req, resp);
-        		
         		
         }
         

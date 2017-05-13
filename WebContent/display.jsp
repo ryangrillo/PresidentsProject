@@ -28,11 +28,11 @@
 	</table>
 	<p>${president.fact}</p>
 	<form action="pickPres.do" method="POST">
-	<label>Enter a President's term-number:<input type="text" name="termNum"/></label><br>
+	<label>Find by term-number:<input type="text" name="termNum"/></label><br>
 	<input type="submit" value="Submit"/>
 	</form> 
 	<form action=getNextOrPrevious.do method="GET">
-	<input type="hidden" name="termNum" value="${president.termNumber }" /> 
+	<input type="hidden" name="termNum" value="${president.termNumber }" />
 		<input type="submit" value="Next President" name="next" /> <!-- next button --> 
 	</form>
 	<form action=getNextOrPrevious.do method="GET">
@@ -52,8 +52,6 @@
 		</select>
 		<input type="submit" value="Sort"/>
 	</form>
-	
-
 	
 </body>
 </html>
