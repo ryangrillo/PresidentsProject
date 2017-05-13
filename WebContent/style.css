@@ -11,7 +11,7 @@ img {
     margin:0;
     border:0 solid #000;
     background-color:#8b7b7b;
-    animation: stuff 22.5s forwards;
+    animation: stuff 15.5s forwards;
  }
 @keyframes stuff {
 0% {

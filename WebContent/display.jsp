@@ -26,6 +26,7 @@
 			<td>${president.startYear}-${president.endYear}</td>
 		</tr>
 	</table>
+	<p>${president.fact}</p>
 	
 	<form action=getNextOrPrevious.do method="GET">
 	<input type="hidden" name="termNum" value="${president.termNumber }" /> 
