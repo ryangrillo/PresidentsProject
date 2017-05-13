@@ -8,7 +8,7 @@
 </head>
 <body style=background-color:lightblue>
 	<form action="pickPres.do" method="POST">
-	<label>Enter a President's term-number:<input type="text" value="termNum"/></label><br>
+	<label>Enter a President's term-number:<input type="text" name="termNum"/></label><br>
 	<input type="submit" value="Submit"/>
 	<%-- 	<c:forEach var="stock" items="${stocks}">
 			<input type="radio" 

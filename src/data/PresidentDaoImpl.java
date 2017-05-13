@@ -19,8 +19,7 @@ public class PresidentDaoImpl implements PresidentDao {
 
 	@Override
 	public List<President> getAllPresidents() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<President>(presidents);
 	}
 
 	@Override
@@ -30,7 +29,7 @@ public class PresidentDaoImpl implements PresidentDao {
 			return pres;
 		}
 		for (President p : presidents) {
-			if (termNum.equals(pres.getTermNumber())) {
+			if (termNum.equals(p.getTermNumber())) {
 				pres = p;
 				break;
 			}
