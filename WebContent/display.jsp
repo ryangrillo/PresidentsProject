@@ -27,11 +27,30 @@
 		</tr>
 	</table>
 	<p>${president.fact}</p>
-	
+	<form action="pickPres.do" method="POST">
+	<label>Enter a President's term-number:<input type="text" name="termNum"/></label><br>
+	<input type="submit" value="Submit"/>
+	</form> 
 	<form action=getNextOrPrevious.do method="GET">
 	<input type="hidden" name="termNum" value="${president.termNumber }" /> 
-		<input type="submit" value="Next President" name="next"/>
-
+		<input type="submit" value="Next President" name="next" /> <!-- next button --> 
+	</form>
+	<form action=getNextOrPrevious.do method="GET">
+	<input type="hidden" name="termNum" value="${president.termNumber }" /> 
+		<input type="submit" value="Previous President" name="previous" /> <!-- previous button --> 
+	</form>
+	
+	<form action="filterParty.do" method="GET">
+	Filter by:
+		<select name="party"> 
+			<option value="Independent">Independent</option>
+			<option value="Federalist">Federalist</option>
+			<option value="Dem-Rep">Democratic-Republican</option>
+			<option value="Democrat">Democrat</option>
+			<option value="Republican">Republican</option>
+			<option value="Whig">Whig</option>
+		</select>
+		<input type="submit" value="Sort"/>
 	</form>
 	
 

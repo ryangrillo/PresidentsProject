@@ -1,6 +1,7 @@
 package web;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -20,23 +21,59 @@ public class PresidentServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String termNum= req.getParameter("termNum");
         String next = req.getParameter("next");
+        String previous = req.getParameter("previous");
         President pres = dao.getPresidentByTermNumber(termNum);
         List<President> presidents = dao.getAllPresidents();
-//        President nextPres = presidents.get(termN+1);
-        System.out.println(next);
-        System.out.println(termNum);
-        System.out.println(presidents);
+        List<President> filteredList = new ArrayList<>(); 
+        String party = req.getParameter("party");
+
         HttpSession session = req.getSession();
-        if(termNum != null && next == null){
+       
+        if(termNum != null && next == null && previous == null && party == null){
             req.setAttribute("president", pres);
             req.getRequestDispatcher("display.jsp").forward(req, resp);
         }
         else if(next != null && termNum != null){
-            President nextPres = presidents.get((presidents.indexOf(pres))+1);
+	        		President nextPres;
+            
+        		if ((presidents.indexOf(pres) == 44)) {
+        			nextPres = presidents.get(0);
+        		}
+        		else {
+        			nextPres =  presidents.get((presidents.indexOf(pres))+1);
+        		}
             req.setAttribute("president", nextPres);
             req.getRequestDispatcher("display.jsp").forward(req, resp);
-            
         }
+        
+        else if(previous != null && termNum != null) {
+        	President previousPres;
+            
+    			if ((presidents.indexOf(pres) == 0)) {
+    				previousPres = presidents.get(44);
+    			}
+    			else {
+    				previousPres =  presidents.get((presidents.indexOf(pres))-1);
+    			}
+    				req.setAttribute("president", previousPres);
+    				req.getRequestDispatcher("display.jsp").forward(req, resp);
+        	
+       	}
+        else if(party != null) {
+        		System.out.println(party);
+        		for (President p : presidents) {
+				System.out.println(p);
+        			if((p.getParty().trim()).equalsIgnoreCase(party)) {
+					System.out.println(p.getParty());
+					filteredList.add(p);
+				}
+			}
+        		req.setAttribute("president", filteredList.get(0));
+			req.getRequestDispatcher("display.jsp").forward(req, resp);
+        		
+        		
+        }
+        
 //        req.setAttribute("presidents", presidents);
 //        req.setAttribute("presidents", presidents);
 //        req.getRequestDispatcher("display.jsp").forward(req, resp);
