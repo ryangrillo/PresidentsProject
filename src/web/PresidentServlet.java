@@ -25,6 +25,7 @@ public class PresidentServlet extends HttpServlet {
 //        President nextPres = presidents.get(termN+1);
         System.out.println(next);
         System.out.println(termNum);
+        System.out.println(presidents);
         HttpSession session = req.getSession();
         if(termNum != null && next == null){
             req.setAttribute("president", pres);
@@ -52,7 +53,7 @@ public class PresidentServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		dao = new PresidentDaoImpl(getServletContext());
+		dao = new PresidentDaoImpl(this.getServletContext());
 	}
 	
 	

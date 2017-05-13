@@ -49,7 +49,7 @@ public class PresidentDaoImpl implements PresidentDao {
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));
 			String line = "";
 			while ( (line = br.readLine()) != null) {
-				String[] fields = line.split(",");
+				String[] fields = line.split("\\|");
 				if (fields.length !=8) {continue;}
 				String[] termRange = fields[4].split("-");
 				President p = new President(fields[1], fields[2], fields[3], fields[5], fields[0], termRange[0],

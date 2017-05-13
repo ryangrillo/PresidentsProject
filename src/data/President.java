@@ -1,7 +1,7 @@
 package data;
 
 public class President {
-	private String fName, mName, lName, party, termNumber, startYear, endYear, image="", fact="";
+	private String fName, mName, lName, party, termNumber, startYear, endYear, image, fact;
 
 	public President(String fName, String mName, String lName, String party, String termNumber, String startYear,
 			String endYear, String image, String fact) {
