@@ -28,7 +28,7 @@
 	</table>
 	<p>${president.fact}</p>
 	<form action="pickPres.do" method="POST">
-	<label>Find by term-number:<input type="text" name="termNum"/></label><br>
+	<label>Find by term-number:<input type="text" name="termNum"/></label>
 	<input type="submit" value="Submit"/>
 	</form> 
 	<form action=getNextOrPrevious.do method="GET">

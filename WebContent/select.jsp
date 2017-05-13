@@ -9,7 +9,7 @@
 </head>
 <body>
 	<form action="pickPres.do" method="POST">
-	<label>Enter a President's term-number:<input type="text" name="termNum"/></label><br>
+	<label>Enter a President's term-number:<input type="text" name="termNum"/></label>
 	<input type="submit" value="Submit"/>
 	</form> 
 <img src="images/seal.jpg" alt="seal" height="400em" width="400em">
