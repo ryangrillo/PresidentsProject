@@ -69,5 +69,5 @@ img {
 
 .arrows {
 	float: right;
-	text-align-last: right;
+	margin-left: 40 em;
 }
