@@ -23,7 +23,6 @@ public class PresidentServlet extends HttpServlet {
         String next = req.getParameter("next");
         String previous = req.getParameter("previous");
         String party = req.getParameter("party");
-        System.out.println(party);
         
         President pres = dao.getPresidentByTermNumber(termNum);
         List<President> presidents = dao.getAllPresidents();
@@ -43,7 +42,6 @@ public class PresidentServlet extends HttpServlet {
         }
         else if(next != null){
 	        		President nextPres;
-	        		System.out.println(presidents);
         		if ((presidents.indexOf(pres) == presidents.size()-1)) {
         			nextPres = presidents.get(0);
         		}
@@ -69,7 +67,6 @@ public class PresidentServlet extends HttpServlet {
         
         else if(previous != null) {
         		President previousPres;
-        		System.out.println(presidents);
     			if ((presidents.indexOf(pres) == 0) && (presidents.size() > 1)) {
     				previousPres = presidents.get(presidents.size()-1);
     			}
