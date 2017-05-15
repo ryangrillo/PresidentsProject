@@ -11,7 +11,6 @@
 </head>
 <body>
 <div class="header">
-
 	<div class="termheader">
 	<form action="pickPres.do" method="post">
 	<a href="select.jsp">Go Home</a>
