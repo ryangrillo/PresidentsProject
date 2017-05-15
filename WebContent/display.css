@@ -70,5 +70,5 @@ img {
 .arrows {
 	float: right;
 	text-align: justify;
-	text-align: right;
+	text-align-last: right;
 }

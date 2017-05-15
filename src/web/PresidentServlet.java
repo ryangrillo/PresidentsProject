@@ -67,14 +67,15 @@ public class PresidentServlet extends HttpServlet {
         
         else if(previous != null) {
         		President previousPres;
+        		System.out.println(presidents);
     			if ((presidents.indexOf(pres) == 0) && (presidents.size() > 1)) {
     				previousPres = presidents.get(presidents.size()-1);
     			}
-    			else if ((presidents.indexOf(pres))-1 >=0) {
-    				previousPres =  presidents.get((presidents.indexOf(pres))-1);
+    			else  if (presidents.indexOf(pres)== 0) {
+    				previousPres =  presidents.get(0);
     			}
     			else {
-    				previousPres = pres;
+    				previousPres = presidents.get(presidents.indexOf(pres)-1);
     			}
  
     			req.setAttribute("president", previousPres);
