@@ -13,6 +13,7 @@ import javax.servlet.ServletContext;
 public class PresidentDaoImpl implements PresidentDao {
 	private List<President> presidents = new ArrayList<>();
 	
+	
 	public PresidentDaoImpl(ServletContext context) {
 		loadPresidentsFromFile(context);
 	}
@@ -38,10 +39,16 @@ public class PresidentDaoImpl implements PresidentDao {
 	}
 
 	@Override
-	public List<President> getFilteredList() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<President> getFilteredList(String party) {
+		List<President> filteredList = new ArrayList<>();
+		for (President p : presidents) {
+			if((p.getParty().trim()).equalsIgnoreCase(party)) {
+			filteredList.add(p);
+			}
+		}
+		return new ArrayList<President>(filteredList);
 	}
+	
 	private void loadPresidentsFromFile(ServletContext context) {
 		String fileName = "WEB-INF/presidents.txt";
 		try {
@@ -50,7 +57,7 @@ public class PresidentDaoImpl implements PresidentDao {
 			String line = "";
 			while ( (line = br.readLine()) != null) {
 				String[] fields = line.split("\\|");
-				if (fields.length !=8) {continue;}
+				if (!(fields.length >=8)) {continue;}
 				String[] termRange = fields[4].split("-");
 				President p = new President(fields[1], fields[2], fields[3], fields[5], fields[0], termRange[0],
 						termRange[1], fields[6], fields[7]);
