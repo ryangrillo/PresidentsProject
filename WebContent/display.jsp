@@ -34,7 +34,7 @@
 		<input type="submit" value="Submit" />
 	</form>
 	<form action=getNextOrPrevious.do method="GET">
-		Filter:<br>
+		Filter by party:<br>
 		<input type="radio" name="party" value="none" <c:if test="${party == 'none' or empty party}">checked</c:if>> None<br>
   		<input type="radio" name="party" value="Independent" <c:if test="${party == 'Independent'}">checked</c:if>> Independent<br>
  		 <input type="radio" name="party" value="Federalist" <c:if test="${party == 'Federalist'}">checked</c:if>> Federalist<br>
@@ -44,9 +44,9 @@
  		 <input type="radio" name="party" value="Whig" <c:if test="${party == 'Whig'}">checked</c:if>> Whig<br>
 		
 		<input type="hidden" name="termNum" value="${president.termNumber }" />
-		<input type="submit" value="Next President" name="next" />
+		<input type="submit" value="<<Previous President" name="previous" />
+		<input type="submit" value="Next President>>" name="next" /><br>
 
-		<input type="submit" value="Previous President" name="previous" /><br>
 		
 	</form>
 	<!-- <form action="filterParty.do" method="GET">
