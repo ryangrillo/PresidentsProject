@@ -70,8 +70,11 @@ public class PresidentServlet extends HttpServlet {
     			if ((presidents.indexOf(pres) == 0) && (presidents.size() > 1)) {
     				previousPres = presidents.get(presidents.size()-1);
     			}
-    			else  if (presidents.indexOf(pres)== 0) {
+    			else  if (presidents.indexOf(pres)== 0 && (presidents.size() ==1)) {
     				previousPres =  presidents.get(0);
+    			}
+    			else if (presidents.indexOf(pres) < 0) {
+    				previousPres = presidents.get(0);
     			}
     			else {
     				previousPres = presidents.get(presidents.indexOf(pres)-1);
